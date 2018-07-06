@@ -1,0 +1,44 @@
+﻿@using EvaluacionPost.Models
+@model List<Post>
+
+@{
+    ViewBag.Title = "Blog";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Blog</h2>
+
+<div class="col-lg-offset-11">
+    <a class="btn btn-success" href="/Post/Create">Add</a>
+</div>
+<div class="container">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Post</th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var post in Model)
+            {
+            <tr>
+
+                <!--TODO:Cambiar metodo input funcona pero no es lo correcto-->
+                <input type="hidden" value="@post.id  name="id" />
+                <td><a href="/Post/Show/@post.id">@post.title</a></td>
+                <td>@post.category.name</td>
+                <td>@post.date.ToString("d")</td>
+
+                <td><a class="btn btn-warning" href="/Post/Edit/@post.id">Edit</a></td>
+                <td><a class="btn btn-danger" href="/Post/Delete/@post.id">Delete</a></td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+

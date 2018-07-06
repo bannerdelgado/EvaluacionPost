@@ -1,0 +1,28 @@
+﻿@model EvaluacionPost.Models.Post
+
+@{
+    ViewBag.Title = "Mostrar Post";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Mostrar Post</h2>
+
+<div class="container">
+    <div>
+        <h4>@Model.category.name</h4>
+        <p>@Model.title</p>
+        <p>@Model.date.ToString("d")</p>
+        <div class="fakeimg" style="height:200px; background-color:ghostwhite">Image</div>
+        <p>@Model.content</p>
+    </div>
+</div>
+<div class="container">
+    <form action="/Post/Comment" id="comment">
+        Name: <input type="text" name="name">
+        <br />
+        <br />
+        <textarea name="comment" form="usrform">Introduce Comentario</textarea>
+        <br />
+        <input type="submit" value="Comment">
+    </form>
+</div>

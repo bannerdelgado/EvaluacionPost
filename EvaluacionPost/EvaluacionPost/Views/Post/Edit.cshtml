@@ -1,0 +1,28 @@
+﻿@model EvaluacionPost.Models.EditViewModel
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+<form method="post" action="/Post/Edit">
+    <input type="hidden" value="@Model.post.id" name="id" />
+    <div class="form-group">
+        <label for="title">title</label>
+        <input id="title" type="text" class="form-control" value="@Model.post.title" placeholder="Ingresa un Titulo" name="title" />
+    </div>
+    <div class="form-group">
+        <label fro="category">Categoty</label>
+        <select class="form-control" id="category" name="category">
+            @foreach (var category in Model.category)
+            {
+                <option value="@category.id"
+                        @(Model.post.category.id == category.id ? "selected" : "")>
+                    @category.name
+                </option>
+            }
+        </select>
+    </div>
+    <button type="submit" class="btn btn-default">Publicar</button>
+</form>

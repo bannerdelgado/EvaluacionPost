@@ -1,0 +1,17 @@
+﻿@model EvaluacionPost.Models.Post
+@{
+    ViewBag.Title = "Eliminar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Eliminar</h2>
+
+<h4>¿Deseas eliminar este post @Model.id de la categoria @Model.title?</h4>
+
+<form method="post" action="/Post/Delete">
+    <input type="submit" value="Si" class="btn btn-danger" />
+    <input type="hidden" value="@Model.id" name="id" />
+</form>
+
+<hr />
+<a class="btn btn-default" href="/Post/Index">Cancelar</a>
