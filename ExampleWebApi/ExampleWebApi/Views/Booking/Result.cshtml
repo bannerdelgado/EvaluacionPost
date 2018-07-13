@@ -1,0 +1,56 @@
+﻿@using ExampleWebApi.ViewModel
+@model List<ResultViewModel>
+
+@{
+    ViewBag.Title = "Result";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Reporte</h2>
+
+<div class="container">
+
+    @foreach (var x in Model)
+    {
+    @Html.HiddenFor(model => x.User.Id)
+
+    <div class="form-group">
+        @Html.LabelFor(model => x.User.Name)
+        @Html.TextBoxFor(model => x.User.Name, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => x.User.LastName)
+        @Html.TextBoxFor(model => x.User.LastName, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => x.User.Email)
+        @Html.TextBoxFor(model => x.User.Email, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => x.User.DayOf)
+        @Html.TextBoxFor(model => x.User.DayOf, new { @class = "form-control" })
+    </div>
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => x.User.DayOf)
+        @Html.TextBoxFor(model => x.User.DayOf, new { @class = "form-control" })
+    </div>
+
+
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => x.User.CityId)
+        @*Html.DropDownListFor(model => model.User.CityId, new SelectList(Model.City, "Id", "Name"), new { @class = "form-control" })*@
+    </div>
+        }
+
+    
+
+</div>
+
+

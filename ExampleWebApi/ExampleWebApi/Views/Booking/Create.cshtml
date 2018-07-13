@@ -1,0 +1,45 @@
+﻿@model ExampleWebApi.ViewModel.BookingViewModel
+@{
+    ViewBag.Title = "Create";
+
+}
+
+<h2>Booking</h2>
+
+<div class="container">
+    <h3>Crear nueva reservacion</h3>
+
+    @using (Html.BeginForm("Result", "Booking"))
+    {
+        @Html.HiddenFor(model => model.User.Id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.User.Name)
+            @Html.TextBoxFor(model => model.User.Name, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.User.LastName)
+            @Html.TextBoxFor(model => model.User.LastName, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.User.Email)
+            @Html.TextBoxFor(model => model.User.Email, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.User.DayOf)
+            @Html.TextBoxFor(model => model.User.DayOf, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.User.CityId)
+           @*Html.DropDownListFor(model => model.User.CityId, new SelectList(Model.City, "Id", "Name"), new { @class = "form-control" })*@
+        </div>
+
+        <input type="submit" value="Guardar" />
+    }
+
+</div>
+
